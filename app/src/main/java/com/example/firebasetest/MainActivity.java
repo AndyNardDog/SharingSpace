@@ -9,7 +9,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseAuth authenticator;
+    private FirebaseAuth authenticator; // for the log-in, and DB information
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
