@@ -17,9 +17,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         auth = FirebaseAuth.getInstance();
 
     }
+
     public void onStart() {
         super.onStart();
 
