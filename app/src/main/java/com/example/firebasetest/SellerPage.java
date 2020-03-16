@@ -9,8 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SellerPage extends AppCompatActivity {
 
@@ -18,15 +23,18 @@ public class SellerPage extends AppCompatActivity {
     EditText price;
     EditText description;
     Button register;
-    DatabaseReference databaseForSeller;
+    private FirebaseAuth auth;
+
+    private FirebaseFirestore mFirestore;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_page);
+        auth = FirebaseAuth.getInstance();
 
-        databaseForSeller = FirebaseDatabase.getInstance().getReference("SellerInfo");
+        mFirestore= FirebaseFirestore.getInstance();
 
         Address = (EditText) findViewById(R.id.Address);
         price = (EditText) findViewById(R.id.Price);
@@ -41,47 +49,39 @@ public class SellerPage extends AppCompatActivity {
         });
     }
 
-    private void addSellerInfo(){
+    private void addSellerInfo() {
 
-        String addressStr =  Address.getText().toString().trim();
-        String priceStr =  price.getText().toString().trim();
-        String descriptionStr =  description.getText().toString().trim();
+        FirebaseUser user = auth.getCurrentUser();
+        String ID = user.getUid();
+        String addressStr = Address.getText().toString().trim();
+        String priceStr = price.getText().toString().trim();
+        String descriptionStr = description.getText().toString().trim();
 
-
-        if(!TextUtils.isEmpty(addressStr) || !TextUtils.isEmpty(priceStr)|| !TextUtils.isEmpty(descriptionStr)){
-
-          String sellerID =   databaseForSeller.push().getKey();
-
-         sellerData sellerinfo = new sellerData(  sellerID,  addressStr ,  priceStr ,  descriptionStr);
-
-         databaseForSeller.child(sellerID).setValue(sellerinfo);
-
-            Toast.makeText(this, "The parking lot is registered", Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(this, "You should fill out the all the blank", Toast.LENGTH_LONG).show();
-
-        }
-
-
+        CollectionReference parkspaces = mFirestore.collection("parkspaces");
+        sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr);
+        parkspaces.add(parkspace);
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
