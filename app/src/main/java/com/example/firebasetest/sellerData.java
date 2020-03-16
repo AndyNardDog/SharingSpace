@@ -22,6 +22,22 @@ public sellerData( String sellerID, String address , String price , String descr
 
 }
 
+    public void setSellerID(String sellerID) {
+        this.sellerID = sellerID;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 
     public String getSellerID() {
         return sellerID;
