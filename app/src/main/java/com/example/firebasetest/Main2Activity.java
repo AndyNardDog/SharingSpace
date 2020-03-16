@@ -24,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser user = auth.getCurrentUser();
+
         if(user != null) {
             textView2 = (TextView) findViewById(R.id.textView2);
             textView2.setText("Hello " + user.getEmail());
