@@ -27,11 +27,11 @@ public class SignUpPage extends AppCompatActivity {
     }
 
     public void onCreateAccount(View view) {
-        EditText userEM = (EditText) findViewById(R.id.email);
+        EditText userEM = (EditText) findViewById(R.id.Address);
         final String userName = userEM.getText().toString();
-        EditText userPWD = (EditText) findViewById(R.id.password);
+        EditText userPWD = (EditText) findViewById(R.id.Price);
         final String userPassword = userPWD.getText().toString();
-        EditText userCFM = (EditText) findViewById(R.id.confirm);
+        EditText userCFM = (EditText) findViewById(R.id.description);
         final String userConfirm = userCFM.getText().toString();
 
         if (!userConfirm.equals(userPassword)){

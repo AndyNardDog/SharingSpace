@@ -6,7 +6,7 @@ import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import com.google.firebase.auth.AuthResult;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -28,7 +28,7 @@ public class Main2Activity extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
 
         if(user != null) {
-            textView2 = (TextView) findViewById(R.id.textView2);
+            textView2 = (TextView) findViewById(R.id.createAccount);
             textView2.setText("Hello " + user.getEmail());
         }
     }
