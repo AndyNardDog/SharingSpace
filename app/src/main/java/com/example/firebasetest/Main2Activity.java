@@ -37,4 +37,11 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void testPage(){
+        Intent intent = new Intent(this, SellerPage.class);
+        startActivity(intent);
+
+    }
 }
+
