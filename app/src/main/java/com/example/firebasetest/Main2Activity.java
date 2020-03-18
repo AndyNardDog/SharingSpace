@@ -32,14 +32,15 @@ public class Main2Activity extends AppCompatActivity {
             textView2.setText("Hello " + user.getEmail());
         }
     }
+
     public void onLogout(View view) {
         auth.signOut();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void testPage(){
-        Intent intent = new Intent(this, SellerPage.class);
+    public void testPage(View view){
+        Intent intent = new Intent(Main2Activity.this, SellerPage.class);
         startActivity(intent);
 
     }
