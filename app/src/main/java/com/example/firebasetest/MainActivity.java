@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         authenticator = FirebaseAuth.getInstance();
-        UserE = (EditText) findViewById(R.id.email);
+        UserE = (EditText) findViewById(R.id.Address);
         Intent intent = getIntent();
         String str = intent.getStringExtra("message");
         UserE.setText(str);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onLogin(View view) {
-        EditText userEM = (EditText) findViewById(R.id.email);
+        EditText userEM = (EditText) findViewById(R.id.Address);
         final String userName = userEM.getText().toString();
         EditText userPWD = (EditText) findViewById(R.id.passwords);
         final String userPassword = userPWD.getText().toString();
