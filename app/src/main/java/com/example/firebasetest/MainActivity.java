@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = authenticator.getCurrentUser();
                             //gotoNext();
-                            onTesting();
+                            gotoNext();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -79,11 +79,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void gotoNext() {
         Intent intent = new Intent(this, Main2Activity.class);
-        startActivity(intent);
-
-    }
-    public void onTesting(){
-        Intent intent = new Intent(this, SellerPage.class);
         startActivity(intent);
 
     }
