@@ -2,6 +2,7 @@ package com.example.firebasetest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,27 +24,33 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    private void onShareSpaceButtonPress(View view) {
-
+    public void onShareSpaceButtonPress(View view) {
+        Intent intent = new Intent(this, SellerPage.class);
+        startActivity(intent);
     }
 
-    private void onProfileButtonPress(View view) {
-
+    public void onProfileButtonPress(View view) {
+        Intent intent = new Intent(this, Profile.class);
+        startActivity(intent);
     }
 
-    private void onPurchasedParkingButtonPress(View view) {
-
+    public void onPurchasedParkingButtonPress(View view) {
+        Intent intent = new Intent(this, PastParking.class);
+        startActivity(intent);
     }
 
-    private void onSettingsButtonPress(View view) {
-
+    public void onSettingsButtonPress(View view) {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
     }
 
-    private void onContactButtonPress(View view) {
-
+    public void onContactButtonPress(View view) {
+        Intent intent = new Intent(this, CurrentOrder.class);
+        startActivity(intent);
     }
 
-    private void onHelpButtonPress(View view) {
-
+    public void onHelpButtonPress(View view) {
+        Intent intent = new Intent(this, Help.class);
+        startActivity(intent);
     }
 }
