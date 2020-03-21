@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         String str = intent.getStringExtra("message");
         UserE.setText(str);
 
+
+
     }
 
     public void onStart() {
