@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:background="#757575"
         android:scaleType="centerCrop"
-        android:src="@drawable/Parking" />
+        android:src="@drawable/images"/>
 
     <TextView
         android:id="@+id/space_item_name"
