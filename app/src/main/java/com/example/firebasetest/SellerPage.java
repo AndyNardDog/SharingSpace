@@ -146,30 +146,29 @@ public class SellerPage extends AppCompatActivity {
 
     }
 
-private void FileUploader(){
-final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(imgUir));
+    private void FileUploader(){
+        final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(imgUir));
 
-    Ref.putFile(imgUir)
-            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    // Get a URL to the uploaded content
+        Ref.putFile(imgUir)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
 //                    Uri downloadUrl = Ref.getDownloadUrl();
-                    Toast.makeText(SellerPage.this, "Uploading Image Successful", Toast.LENGTH_LONG).show();
-                }
-            })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    // Handle unsuccessful uploads
-                    // ...
-                }
-            });
+                        Toast.makeText(SellerPage.this, "Uploading Image Successful", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                    }
+                });
 
-}
+    }
 
     public void addSellerInfo(){
-
         FirebaseUser user = auth.getCurrentUser();
         String ID = user.getUid();
         String addressStr = Address.getText().toString().trim();
@@ -180,7 +179,6 @@ final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." +
         CollectionReference parkspaces = mFirestore.collection("parkspaces");
         sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr, isRented);
         parkspaces.add(parkspace);
-
     }
 
 
@@ -188,3 +186,6 @@ final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." +
 
 
 }
+
+
+
