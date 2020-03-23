@@ -41,6 +41,7 @@ public class SellerPage extends AppCompatActivity {
     EditText description;
     Button register;
     Button chooseImage;
+    Boolean isRented = false;
     private FirebaseAuth auth;
     private FirebaseFirestore mFirestore;
     private StorageReference mStorageRef;
@@ -49,7 +50,7 @@ public class SellerPage extends AppCompatActivity {
     private static final int PERMISSION_CODE = 1001;
     ImageView View;
     public Uri imgUir;
-    private StorageTask uploadTask;
+//    private StorageTask uploadTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,8 @@ public class SellerPage extends AppCompatActivity {
         register = (Button) findViewById(R.id.addButton);
         chooseImage = (Button)  findViewById(R.id.image);
         View = (ImageView) findViewById(R.id.imageView);
+
+
         chooseImage.setOnClickListener(new View.OnClickListener() {
                                            @Override
                                            public void onClick(View v) {
@@ -89,9 +92,12 @@ public class SellerPage extends AppCompatActivity {
                                            }
                                        }
         );
+
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FileUploader();
                 addSellerInfo();
             }
         });
@@ -108,13 +114,16 @@ public class SellerPage extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE){
+        if(resultCode == RESULT_OK && requestCode == IMAGE_PICK_CODE && data != null){
             imgUir = data.getData();
             View.setImageURI(data.getData());
         }
     }
+
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -138,14 +147,15 @@ public class SellerPage extends AppCompatActivity {
     }
 
 private void FileUploader(){
-StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(imgUir));
+final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(imgUir));
 
     Ref.putFile(imgUir)
             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     // Get a URL to the uploaded content
-//                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+//                    Uri downloadUrl = Ref.getDownloadUrl();
+                    Toast.makeText(SellerPage.this, "Uploading Image Successful", Toast.LENGTH_LONG).show();
                 }
             })
             .addOnFailureListener(new OnFailureListener() {
@@ -155,6 +165,7 @@ StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getEx
                     // ...
                 }
             });
+
 }
 
     public void addSellerInfo(){
@@ -163,15 +174,10 @@ StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getEx
         String addressStr = Address.getText().toString().trim();
         String priceStr = price.getText().toString().trim();
         String descriptionStr = description.getText().toString().trim();
-
-//        //Storing image step
-//        Intent intent = new Intent();
-//        intent.setType("image/*");
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(intent,1 );
+        isRented =true;
 
         CollectionReference parkspaces = mFirestore.collection("parkspaces");
-        sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr);
+        sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr, isRented);
         parkspaces.add(parkspace);
     }
 
