@@ -8,17 +8,17 @@ public class sellerData {
 String address;
 String price;
 String description;
-
+Boolean isRented = false;
 
     public sellerData(){}
 
 
-public sellerData( String sellerID, String address , String price , String description){
+public sellerData( String sellerID, String address , String price , String description, Boolean isRented){
         this.sellerID = sellerID;
     this.address = address;
     this.price = price;
     this.description = description;
-
+    this.isRented = isRented;
 
 }
 
