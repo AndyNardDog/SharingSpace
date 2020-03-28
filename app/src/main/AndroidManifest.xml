@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Help"></activity>
+        <activity android:name=".PaymentPage"></activity>
+        <activity android:name=".Help" />
         <activity android:name=".CurrentOrder" />
         <activity android:name=".Settings" />
         <activity android:name=".PastParking" />

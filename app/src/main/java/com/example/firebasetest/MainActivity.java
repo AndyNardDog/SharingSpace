@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void skip(View view) {
+        Intent intent = new Intent(this, PaymentPage.class);
+        startActivity(intent);
+    }
 //    public void onTesting(){
 //        Intent intent = new Intent(this, SellerPage.class);
 //        startActivity(intent);
