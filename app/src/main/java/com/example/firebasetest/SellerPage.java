@@ -169,6 +169,7 @@ final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." +
 }
 
     public void addSellerInfo(){
+
         FirebaseUser user = auth.getCurrentUser();
         String ID = user.getUid();
         String addressStr = Address.getText().toString().trim();
@@ -179,6 +180,7 @@ final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." +
         CollectionReference parkspaces = mFirestore.collection("parkspaces");
         sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr, isRented);
         parkspaces.add(parkspace);
+
     }
 
 
