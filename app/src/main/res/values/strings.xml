@@ -9,5 +9,20 @@
     <string name="sorted_by_rating">Sort by Rating</string>
     <string name="message_no_results">Oops, couldn\'t find any results\nthat matched your filter</string>
     <string name="divider_bullet">•</string>
+    <string name="sorted_by_price" />
+    <string name="sorted_by_popularity" />
+    <string name="cancel" />
+    <string name="apply" />
+    <string name="header_filters" />
+    <string name="value_any_category" />
+    <string name="value_any_city" />
+    <string name="price_1" />
+    <string name="price_2" />
+    <string name="price_3" />
+    <string name="sort_by_rating" />
+    <string name="sort_by_price" />
+    <string name="sort_by_popularity" />
+    <string name="all_spaces" />
+    <string name="fmt_num_ratings" translatable="false">(%d)</string>
 
 </resources>

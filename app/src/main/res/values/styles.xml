@@ -41,5 +41,17 @@
         <item name="android:colorControlNormal">#f9a825</item>
     </style>
 
+    <style name="ThemeOverlay.FilterButton" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Title"></style>
+
+    <style name="AppTheme.FilterIcon"></style>
+
+    <style name="AppTheme.FilterSpinner"></style>
+
+    <style name="AppTheme.Divider"></style>
+
 
 </resources>

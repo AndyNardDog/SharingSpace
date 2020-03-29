@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities" />
+    <string-array name="categories" />
+    <string-array name="prices" />
+    <string-array name="sort_by" />
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="icon_city" type="id" />
+    <item name="icon_category" type="id" />
+    <item name="icon_price" type="id" />
+    <item name="icon_sort" type="id" />
+    <item name="button_search" type="id" />
+    <item name="button_cancel" type="id" />
+    <item name="spinner_category" type="id" />
+    <item name="spinner_city" type="id" />
+    <item name="spinner_sort" type="id" />
+    <item name="spinner_price" type="id" />
+</resources>
