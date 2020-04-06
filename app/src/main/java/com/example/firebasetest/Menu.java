@@ -13,7 +13,7 @@ public class Menu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.menu);
 
         ImageButton shareSpaceButton = findViewById(R.id.shareSpotButton);
         ImageButton profileButton = findViewById(R.id.profileButton);
