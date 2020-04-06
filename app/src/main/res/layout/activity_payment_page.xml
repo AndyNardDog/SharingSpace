@@ -69,7 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/check_mark_pic" />
+        app:srcCompat="@drawable/check_mark_icon"
+        tools:srcCompat="@drawable/check_mark_icon" />
 
     <ImageView
         android:id="@+id/imageView"
