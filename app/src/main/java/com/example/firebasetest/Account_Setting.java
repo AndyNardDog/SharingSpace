@@ -32,6 +32,7 @@ public class Account_Setting extends AppCompatActivity {
     Button updateButton;
     public Uri imgUir;
 
+    private static final int IMAGE_PICK_CODE = 1000;
 
     private FirebaseAuth auth;
     private StorageReference mStorageRef;
@@ -43,7 +44,8 @@ public class Account_Setting extends AppCompatActivity {
         setContentView(R.layout.activity_account__setting);
 
         auth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
+        mStorageRef = FirebaseStorage.getInstance().getReference("Images"); // Storage for the image
 
 
         Profileimage = (ImageView)findViewById(R.id.imageView);
@@ -57,6 +59,7 @@ public class Account_Setting extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FileUploader();
                 updateInfo();
 
             }
@@ -68,6 +71,14 @@ public class Account_Setting extends AppCompatActivity {
                 FileUploader();
             }
         });
+    }
+
+    private void pickImageFromGallay(){
+
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        startActivityForResult(intent, IMAGE_PICK_CODE);
+
     }
 
     private String getExtension(Uri uri){
@@ -108,9 +119,9 @@ public class Account_Setting extends AppCompatActivity {
       String phone = PhoneNumber.getText().toString().trim();
 
 
-      CollectionReference UserInfo = mFirestore.collection("UserDate");
+      CollectionReference UserInfo = mFirestore.collection("UserData");
       UserData userData = new UserData(ID ,Username, addressStr,phone ,emailAddress  );
-        UserInfo.add(UserInfo);
+        UserInfo.add(userData);
     }
 
 
