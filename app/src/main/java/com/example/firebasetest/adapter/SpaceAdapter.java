@@ -21,7 +21,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 /**
- * RecyclerView adapter for a list of Restaurants.
+ * RecyclerView adapter for a list of parking space.
  */
 public class SpaceAdapter extends FirestoreAdapter<SpaceAdapter.ViewHolder> {
 

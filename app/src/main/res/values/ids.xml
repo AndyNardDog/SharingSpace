@@ -10,4 +10,6 @@
     <item name="spinner_city" type="id" />
     <item name="spinner_sort" type="id" />
     <item name="spinner_price" type="id" />
+    <item name="menu_add_items" type="id" />
+    <item name="menu_sign_out" type="id" />
 </resources>
