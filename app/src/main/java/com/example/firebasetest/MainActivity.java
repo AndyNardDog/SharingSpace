@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void skip(View view) {
-        Intent intent = new Intent(this, PaymentPage.class);
+        Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
 //    public void onTesting(){

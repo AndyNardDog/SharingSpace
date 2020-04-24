@@ -14,9 +14,9 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Account_Setting"></activity>
         <activity android:name=".PaymentPage" />
+        <activity android:name=".Menu" />
         <activity android:name=".Help" />
         <activity android:name=".CurrentOrder" />
-        <activity android:name=".Settings" />
         <activity android:name=".PastParking" />
         <activity android:name=".Profile" />
         <activity android:name=".SellerPage" />

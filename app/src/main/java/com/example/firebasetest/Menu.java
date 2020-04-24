@@ -40,7 +40,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void onSettingsButtonPress(View view) {
-        Intent intent = new Intent(this, Settings.class);
+        Intent intent = new Intent(this, Account_Setting.class);
         startActivity(intent);
     }
 
