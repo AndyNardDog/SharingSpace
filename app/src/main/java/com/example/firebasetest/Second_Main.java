@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -30,6 +31,9 @@ public class Second_Main extends AppCompatActivity {
 
         fb = FirebaseFirestore.getInstance();
 
+        EditText search = findViewById(R.id.search_word);
+
+
         spacesRec = (RecyclerView) findViewById(R.id.spacesRecycler);
         spacesRec.setLayoutManager(new LinearLayoutManager(this));
 
@@ -42,7 +46,6 @@ public class Second_Main extends AppCompatActivity {
         adapter = new FirestoreRecyclerAdapter<SpaceModel, SpaceHolder>(spacesAvailable) {
             @Override
             protected void onBindViewHolder(SpaceHolder spaceHolder, int i, SpaceModel spaceModel) {
-
                 spaceHolder.setAddress(spaceModel.getAddress());
                 spaceHolder.setDescription(spaceModel.getDescription());
                 spaceHolder.setPrice(spaceModel.getPrice());
@@ -59,7 +62,6 @@ public class Second_Main extends AppCompatActivity {
         };
 
         spacesRec.setAdapter(adapter);
-
     }
 
     @Override

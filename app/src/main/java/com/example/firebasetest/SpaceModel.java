@@ -18,6 +18,7 @@ public class SpaceModel {
         this.sellerID = sellerID;
     }
 
+    //getters
     public String getAddress() { return address; }
 
     public String getDescription() {
