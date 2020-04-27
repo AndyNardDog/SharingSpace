@@ -41,4 +41,8 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, SellerPage.class);
         startActivity(intent);
     }
+    public void SecondMain(View view) {
+        Intent intent = new Intent(this, Second_Main.class);
+        startActivity(intent);
+    }
 }
