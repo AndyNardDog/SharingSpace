@@ -49,4 +49,8 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, Account_Setting.class);
         startActivity(intent);
     }
+    public void Map(View view) {
+        Intent intent = new Intent(this, ParkingMap.class);
+        startActivity(intent);
+    }
 }
