@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SpaceHolder extends RecyclerView.ViewHolder {
 
-    private View view;
+    public View view;
     private TextView addressText;
     private TextView descriptionText;
     private TextView priceText;

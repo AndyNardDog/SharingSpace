@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Second_Main"></activity>
+        <activity android:name=".SpaceDetails"></activity>
+        <activity android:name=".Second_Main" />
         <activity android:name=".Account_Setting" />
         <activity android:name=".PaymentPage" />
         <activity android:name=".Menu" />

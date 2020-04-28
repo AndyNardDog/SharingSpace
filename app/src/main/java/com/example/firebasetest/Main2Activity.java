@@ -45,4 +45,8 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = new Intent(this, Second_Main.class);
         startActivity(intent);
     }
+    public void AccountSetting(View view) {
+        Intent intent = new Intent(this, Account_Setting.class);
+        startActivity(intent);
+    }
 }
