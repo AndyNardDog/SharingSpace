@@ -61,7 +61,7 @@
         android:id="@+id/confirmButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:background="@drawable/circular_button_green"
+        android:background="@drawable/ic_check_box_black_24dp"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,9 +69,9 @@
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944"
-        app:srcCompat="@drawable/check_mark_icon"
-        tools:srcCompat="@drawable/check_mark_icon" />
+        app:layout_constraintVertical_bias="0.944"/>
+        //app:srcCompat="@drawable/check_mark_icon"
+        //tools:srcCompat="@drawable/check_mark_icon"  />
 
     <TextView
         android:id="@+id/locationText"

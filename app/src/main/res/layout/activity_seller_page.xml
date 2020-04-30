@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SellerPage">
 
-
     <TextView
         android:id="@+id/createAccount"
         android:layout_width="285dp"
