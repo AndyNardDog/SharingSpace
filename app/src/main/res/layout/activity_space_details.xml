@@ -7,7 +7,7 @@
     tools:context=".SpaceDetails">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -18,30 +18,46 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintLeft_toLeftOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+        app:layout_constraintLeft_toLeftOf="@+id/nameTextView"
         tools:layout_editor_absoluteX="158dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/addressTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
         android:text="TextView"
-        app:layout_constraintLeft_toLeftOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintLeft_toLeftOf="@+id/priceTextView"
+        app:layout_constraintTop_toBottomOf="@+id/priceTextView" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/descriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="TextView"
-        app:layout_constraintLeft_toLeftOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintLeft_toLeftOf="@+id/addressTextView"
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+    <ImageButton
+        android:id="@+id/pickSpaceButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/circular_button_blue"
+        android:padding="?attr/dialogPreferredPadding"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93"
+        app:srcCompat="@drawable/check_mark_icon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

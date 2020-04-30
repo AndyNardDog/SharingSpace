@@ -73,18 +73,6 @@
         app:srcCompat="@drawable/check_mark_icon"
         tools:srcCompat="@drawable/check_mark_icon" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="117dp"
-        android:layout_height="111dp"
-        android:background="@drawable/circular_button_blue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
     <TextView
         android:id="@+id/locationText"
         android:layout_width="175dp"
@@ -93,14 +81,16 @@
         android:text="Location:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.203" />
+        app:layout_constraintVertical_bias="0.077" />
 
     <TextView
         android:id="@+id/ownerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Owner:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -111,6 +101,7 @@
         android:id="@+id/phoneNoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Phone Number:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -127,7 +118,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/phoneNoText"
         app:layout_constraintTop_toBottomOf="@+id/phoneNoText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <TextView
         android:id="@+id/paymentText"
@@ -135,6 +126,7 @@
         android:layout_height="wrap_content"
         android:text="Payment Method"
         android:textSize="24sp"
+        android:textColor="@color/design_default_color_primary_variant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.109"
@@ -142,7 +134,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.602" />
 
-    <TextView
+    <EditText
         android:id="@+id/cardText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -154,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@+id/paymentText"
         app:layout_constraintVertical_bias="0.119" />
 
-    <TextView
+    <EditText
         android:id="@+id/expDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -167,20 +159,20 @@
         app:layout_constraintTop_toBottomOf="@+id/cardText"
         app:layout_constraintVertical_bias="0.536" />
 
-    <TextView
+    <EditText
         android:id="@+id/cvvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CVV:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toEndOf="@+id/expDateText"
         app:layout_constraintTop_toBottomOf="@+id/cardText"
-        app:layout_constraintVertical_bias="0.581" />
+        app:layout_constraintVertical_bias="0.594" />
 
-    <TextView
-        android:id="@+id/nameOnCardTexr"
+    <EditText
+        android:id="@+id/nameOnCardText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name on Card:"
@@ -189,6 +181,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cardText"
         app:layout_constraintTop_toBottomOf="@+id/cardText"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.051" />
+
+    <TextView
+        android:id="@+id/spaceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Space Info"
+        android:textColor="@color/design_default_color_primary_variant"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/locationText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

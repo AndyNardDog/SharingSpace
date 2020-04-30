@@ -26,6 +26,18 @@ public class PaymentPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_page);
 
+        TextView name = findViewById(R.id.ownerText);
+        TextView price = findViewById(R.id.costText);
+        TextView address = findViewById(R.id.locationText);
+        TextView phone = findViewById(R.id.phoneNoText);
+
+        Intent intent = getIntent();
+
+        name.setText("Owner: " + intent.getStringExtra("ID"));
+        price.setText("(Hourly) Rate: $" + intent.getStringExtra("price"));
+        address.setText("Address: " + intent.getStringExtra("address"));
+
+
         final TextView startDate = (TextView) findViewById(R.id.startDateTextField);
         final TextView endDate = (TextView) findViewById(R.id.endDateTextField);
 
@@ -46,7 +58,7 @@ public class PaymentPage extends AppCompatActivity {
             }
         });
 
-        final Intent intent = new Intent(this, CurrentOrder.class);
+        final Intent intent2 = new Intent(this, CurrentOrder.class);
 /////////////////////////////////////////////////////////////////
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +80,7 @@ public class PaymentPage extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
-                            startActivity(intent);
+                            startActivity(intent2);
                         }
                     };
                     timer.start();
