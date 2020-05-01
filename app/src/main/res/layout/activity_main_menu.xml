@@ -16,10 +16,10 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintHorizontal_bias="0.176"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14"
+        app:layout_constraintVertical_bias="0.141"
         app:srcCompat="@drawable/rent_parking_icon" />
 
     <ImageButton
@@ -27,15 +27,15 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
+        android:onClick="onShareSpaceButtonPress"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
-        android:onClick="onShareSpaceButtonPress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142"
+        app:layout_constraintVertical_bias="0.143"
         app:srcCompat="@drawable/past_parking_icon" />
 
     <ImageButton
@@ -48,7 +48,7 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintHorizontal_bias="0.819"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.469"
@@ -116,6 +116,35 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/settingsButton"
         app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/circular_button_blue"
+        android:padding="?attr/dialogPreferredPadding"
+        android:paddingTop="8dp"
+        android:scaleType="fitXY"
+        android:onClick="onLogout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819"
+        app:srcCompat="@drawable/logout_icon" />
+
+    <TextView
+        android:id="@+id/logoutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="@+id/logoutButton"
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
