@@ -63,15 +63,4 @@
             android:text="Menu" />
     </com.google.android.material.tabs.TabLayout>
 
-    <ImageButton
-        android:id="@+id/sortButton"
-        android:layout_width="41dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.418"
-        app:layout_constraintStart_toEndOf="@+id/search_word"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

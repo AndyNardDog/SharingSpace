@@ -161,6 +161,7 @@ public class Second_Main extends AppCompatActivity {
     private RecyclerView.Adapter spacesAdapter;
     private FirebaseFirestore fb;
     private FirestoreRecyclerAdapter<SpaceModel, SpaceHolder> adapter;
+    private FirestoreRecyclerOptions<SpaceModel> recyclerOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,26 +169,55 @@ public class Second_Main extends AppCompatActivity {
         setContentView(R.layout.activity_second__main);
 
         fb = FirebaseFirestore.getInstance();
+
         TabLayout bottomTabBar = findViewById(R.id.bottomTab);
         TabItem menuTab = findViewById(R.id.menuTab);
+        Intent menuTabIntent = new Intent(this, Menu.class);
         TabItem mapTab = findViewById(R.id.mapTab);
+        Intent mapTabIntent = new Intent(this, ParkingMap.class);
         TabItem homeTab = findViewById(R.id.homeTab);
+
+        bottomTabBar.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch(tab.getPosition()) {
+                    case 0:
+                        break;
+                    case 1:
+                        startActivity(mapTabIntent);
+                        break;
+                    case 2:
+                        startActivity(menuTabIntent);
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         EditText search = findViewById(R.id.search_word);
 
         spacesRec = (RecyclerView) findViewById(R.id.spacesRecycler);
         spacesRec.setLayoutManager(new LinearLayoutManager(this));
 
-        CollectionReference ref = fb.collection("parkspaces");
-        final Query spaces = ref.orderBy("price", Query.Direction.ASCENDING);
+        final Query spaces = fb.collection("parkspaces");
 
-        FirestoreRecyclerOptions<SpaceModel> spacesAvailable = new FirestoreRecyclerOptions.Builder<SpaceModel>()
+        recyclerOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
                 .setQuery(spaces, SpaceModel.class)
                 .build();
 
         final Intent intent2 = new Intent(this, SpaceDetails.class);
 
-        adapter = new FirestoreRecyclerAdapter<SpaceModel, SpaceHolder>(spacesAvailable) {
+        adapter = new FirestoreRecyclerAdapter<SpaceModel, SpaceHolder>(recyclerOptions) {
+
             @Override
             protected void onBindViewHolder(final SpaceHolder spaceHolder, int i, final SpaceModel spaceModel) {
                 spaceHolder.setAddress(spaceModel.getAddress());
@@ -205,8 +235,6 @@ public class Second_Main extends AppCompatActivity {
                         intent2.putExtra("address",spaceModel1.getAddress());
                         intent2.putExtra("description",spaceModel1.getDescription());
                         startActivity(intent2);
-
-
                     }
                 });
             }
@@ -217,7 +245,6 @@ public class Second_Main extends AppCompatActivity {
                 View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.space, parent, false);
                 return new SpaceHolder(view);
             }
-
         };
 
         spacesRec.setAdapter(adapter);
@@ -254,6 +281,16 @@ public class Second_Main extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.priceSort:
+
+                CollectionReference ref = fb.collection("parkspaces");
+                Query sortedSpaces = ref.orderBy("price", Query.Direction.ASCENDING);
+
+                FirestoreRecyclerOptions<SpaceModel> newOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
+                        .setQuery(sortedSpaces, SpaceModel.class)
+                        .build();
+
+                adapter.updateOptions(newOptions);
+
                 Toast.makeText(this, "Sorted by Price", Toast.LENGTH_SHORT).show();
                 return true;
 
