@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -15,11 +17,9 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         ImageButton shareSpaceButton = findViewById(R.id.shareSpotButton);
-        ImageButton profileButton = findViewById(R.id.profileButton);
-        ImageButton purchasedParkingButton = findViewById(R.id.purchasedParkingButton);
+        ImageButton findParkingButton = findViewById(R.id.findParkingButton);
         ImageButton settingsButton = findViewById(R.id.settingsButton);
-        ImageButton contactButton = findViewById(R.id.contactInfoButton);
-        ImageButton helpButton = findViewById(R.id.helpButton);
+        ImageButton contactButton = findViewById(R.id.mapButton);
     }
 
     public void onShareSpaceButtonPress(View view) {
@@ -27,13 +27,8 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onProfileButtonPress(View view) {
-        Intent intent = new Intent(this, Profile.class);
-        startActivity(intent);
-    }
-
-    public void onPurchasedParkingButtonPress(View view) {
-        Intent intent = new Intent(this, PastParking.class);
+    public void onFindSpaceButtonPress(View view) {
+        Intent intent = new Intent(this, Second_Main.class);
         startActivity(intent);
     }
 
@@ -42,8 +37,8 @@ public class MainMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onContactButtonPress(View view) {
-        Intent intent = new Intent(this, CurrentOrder.class);
+    public void onMapButtonPress(View view) {
+        Intent intent = new Intent(this, ParkingMap.class);
         startActivity(intent);
     }
 

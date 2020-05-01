@@ -24,7 +24,6 @@
         <activity android:name=".Help" />
         <activity android:name=".CurrentOrder" />
         <activity android:name=".PastParking" />
-        <activity android:name=".Profile" />
         <activity android:name=".SellerPage" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".Main2Activity" />

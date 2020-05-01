@@ -7,11 +7,11 @@
     tools:context=".MainMenu">
 
     <ImageButton
-        android:id="@+id/shareSpotButton"
+        android:id="@+id/findParkingButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
-        android:onClick="onShareSpaceButtonPress"
+        android:onClick="onFindSpaceButtonPress"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,13 +23,13 @@
         app:srcCompat="@drawable/rent_parking_icon" />
 
     <ImageButton
-        android:id="@+id/purchasedParkingButton"
+        android:id="@+id/shareSpotButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
-        android:onClick="onPurchasedParkingButtonPress"
+        android:onClick="onShareSpaceButtonPress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.822"
@@ -39,67 +39,83 @@
         app:srcCompat="@drawable/past_parking_icon" />
 
     <ImageButton
-        android:id="@+id/profileButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/circular_button_blue"
-        android:padding="12dp"
-        android:scaleType="fitXY"
-        android:onClick="onProfileButtonPress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.468"
-        app:srcCompat="@drawable/profile" />
-
-    <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
+        android:onClick="onSettingsButtonPress"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
-        android:onClick="onSettingsButtonPress"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/helpButton"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47"
+        app:layout_constraintVertical_bias="0.469"
         app:srcCompat="@drawable/settings_icon" />
 
     <ImageButton
-        android:id="@+id/contactInfoButton"
+        android:id="@+id/mapButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
-        android:padding="17dp"
+        android:onClick="onMapButtonPress"
+        android:padding="24dp"
         android:scaleType="fitXY"
-        android:onClick="onContactButtonPress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81"
-        app:srcCompat="@drawable/contact_icon" />
+        app:layout_constraintVertical_bias="0.469"
+        app:srcCompat="@drawable/map_icon" />
 
-    <ImageButton
-        android:id="@+id/helpButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/circular_button_blue"
-        android:padding="?attr/dialogPreferredPadding"
-        android:scaleType="fitXY"
-        android:onClick="onHelpButtonPress"
+    <TextView
+        android:id="@+id/findParkingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Parking (Second Main)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812"
-        app:srcCompat="@drawable/help_icon" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/findParkingButton"
+        app:layout_constraintTop_toBottomOf="@+id/findParkingButton"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/sellParkingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rent Out a Space"
+        app:layout_constraintBottom_toTopOf="@+id/settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/shareSpotButton"
+        app:layout_constraintTop_toBottomOf="@+id/shareSpotButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/mapText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/mapButton"
+        app:layout_constraintTop_toBottomOf="@+id/mapButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/accountSettingsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/settingsButton"
+        app:layout_constraintTop_toBottomOf="@+id/settingsButton"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
