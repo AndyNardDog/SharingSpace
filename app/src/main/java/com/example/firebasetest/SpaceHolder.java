@@ -24,14 +24,14 @@ public class SpaceHolder extends RecyclerView.ViewHolder {
     }
 
     public void setAddress(String address) {
-        addressText.setText(address);
+        addressText.setText("Location: " + address);
     }
 
     public void setDescription(String description) {
-        descriptionText.setText(description);
+        descriptionText.setText("Description: " + description);
     }
 
-    public void setPrice(String price) { priceText.setText(price); }
+    public void setPrice(String price) { priceText.setText("Hourly Rate: $" + price); }
 
     public void setSellerId(String sellerId) { sellerIdText.setText(sellerId); }
 

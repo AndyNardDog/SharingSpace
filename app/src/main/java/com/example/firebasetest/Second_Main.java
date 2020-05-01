@@ -9,14 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -161,14 +168,18 @@ public class Second_Main extends AppCompatActivity {
         setContentView(R.layout.activity_second__main);
 
         fb = FirebaseFirestore.getInstance();
+        TabLayout bottomTabBar = findViewById(R.id.bottomTab);
+        TabItem menuTab = findViewById(R.id.menuTab);
+        TabItem mapTab = findViewById(R.id.mapTab);
+        TabItem homeTab = findViewById(R.id.homeTab);
 
         EditText search = findViewById(R.id.search_word);
-
 
         spacesRec = (RecyclerView) findViewById(R.id.spacesRecycler);
         spacesRec.setLayoutManager(new LinearLayoutManager(this));
 
-        final Query spaces = fb.collection("parkspaces");
+        CollectionReference ref = fb.collection("parkspaces");
+        final Query spaces = ref.orderBy("price", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<SpaceModel> spacesAvailable = new FirestoreRecyclerOptions.Builder<SpaceModel>()
                 .setQuery(spaces, SpaceModel.class)
@@ -229,5 +240,24 @@ public class Second_Main extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.sort_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.priceSort:
+                Toast.makeText(this, "Sorted by Price", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default: return super.onOptionsItemSelected(item);
+        }
     }
 }
