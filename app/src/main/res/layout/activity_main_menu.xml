@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainMenu">
 
     <ImageButton
         android:id="@+id/shareSpotButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
+        android:onClick="onShareSpaceButtonPress"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
-        android:onClick="onShareSpaceButtonPress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
@@ -24,8 +24,8 @@
 
     <ImageButton
         android:id="@+id/purchasedParkingButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
@@ -40,8 +40,8 @@
 
     <ImageButton
         android:id="@+id/profileButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="12dp"
         android:scaleType="fitXY"
@@ -56,8 +56,8 @@
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
@@ -72,8 +72,8 @@
 
     <ImageButton
         android:id="@+id/contactInfoButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="17dp"
         android:scaleType="fitXY"
@@ -88,8 +88,8 @@
 
     <ImageButton
         android:id="@+id/helpButton"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:background="@drawable/circular_button_blue"
         android:padding="?attr/dialogPreferredPadding"
         android:scaleType="fitXY"
@@ -101,4 +101,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.812"
         app:srcCompat="@drawable/help_icon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

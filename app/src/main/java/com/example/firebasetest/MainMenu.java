@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-public class Menu extends AppCompatActivity {
+public class MainMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu);
+        setContentView(R.layout.activity_main_menu);
 
         ImageButton shareSpaceButton = findViewById(R.id.shareSpotButton);
         ImageButton profileButton = findViewById(R.id.profileButton);
@@ -21,7 +20,6 @@ public class Menu extends AppCompatActivity {
         ImageButton settingsButton = findViewById(R.id.settingsButton);
         ImageButton contactButton = findViewById(R.id.contactInfoButton);
         ImageButton helpButton = findViewById(R.id.helpButton);
-
     }
 
     public void onShareSpaceButtonPress(View view) {

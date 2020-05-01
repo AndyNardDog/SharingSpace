@@ -172,7 +172,7 @@ public class Second_Main extends AppCompatActivity {
 
         TabLayout bottomTabBar = findViewById(R.id.bottomTab);
         TabItem menuTab = findViewById(R.id.menuTab);
-        Intent menuTabIntent = new Intent(this, Menu.class);
+        Intent menuTabIntent = new Intent(this, MainMenu.class);
         TabItem mapTab = findViewById(R.id.mapTab);
         Intent mapTabIntent = new Intent(this, ParkingMap.class);
         TabItem homeTab = findViewById(R.id.homeTab);
