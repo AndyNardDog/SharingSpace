@@ -136,8 +136,8 @@
 
     <EditText
         android:id="@+id/cardText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="270dp"
+        android:layout_height="36dp"
         android:text="Card:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,8 +148,8 @@
 
     <EditText
         android:id="@+id/expDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
         android:layout_marginTop="16dp"
         android:text="Exp. Date:"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,15 +161,15 @@
 
     <EditText
         android:id="@+id/cvvText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="101dp"
+        android:layout_height="40dp"
         android:text="CVV:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toEndOf="@+id/expDateText"
         app:layout_constraintTop_toBottomOf="@+id/cardText"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <EditText
         android:id="@+id/nameOnCardText"

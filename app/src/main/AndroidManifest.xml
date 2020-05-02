@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".PaymentSucess"></activity>
+        <activity android:name=".MainMenu" />
         <activity android:name=".ParkingMap" />
         <activity android:name=".SpaceDetails" />
         <activity android:name=".Second_Main" />

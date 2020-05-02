@@ -58,8 +58,10 @@ public class PaymentPage extends AppCompatActivity {
             }
         });
 
-        final Intent intent2 = new Intent(this, CurrentOrder.class);
+        final Intent intent2 = new Intent(this, PaymentSucess.class);
+
 /////////////////////////////////////////////////////////////////
+
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
