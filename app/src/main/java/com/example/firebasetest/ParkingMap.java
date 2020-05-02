@@ -1,6 +1,5 @@
 package com.example.firebasetest;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -8,6 +7,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -33,11 +33,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +44,7 @@ import java.util.List;
 // 1. add a new field into firestore :boolean isRented; demonstrate whether this parking space has been rented,
 // 2. calculate distance from current location to every parking space, only display parking spaces within certain distance, sort by distance
 
-public class ParkingMap extends FragmentActivity {
+public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWindowClickListener {
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 12;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private final LatLng mDestinationLatLng = new LatLng(43.0714994, -89.4083679);
@@ -62,7 +60,13 @@ public class ParkingMap extends FragmentActivity {
 
     }
 
+
+
     private List<String> parkaddresses = new ArrayList<>();
+    private List<String> parkingprice = new ArrayList<>();
+    private List<String> parkUID = new ArrayList<>();
+    private List<String> parkdescription = new ArrayList<>();
+    private List<String> parkimagepath = new ArrayList<>();
     FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +80,17 @@ public class ParkingMap extends FragmentActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String   useraddress =  document.getData().get("address").toString();
+                                String   price =  document.getData().get("price").toString();
                                 parkaddresses.add(useraddress);
                                 Log.d(TAG, "useraddress: "+useraddress);
-
+                                parkingprice.add(price);
                                 Log.d(TAG, "parkaddresses: "+parkaddresses.size());
+                                String   description =  document.getData().get("description").toString();
+                                parkdescription.add(description);
+                                String   imagepath =  document.getData().get("imagepath").toString();
+                                parkimagepath.add(imagepath);
+                                String   UID =  document.getData().get("sellerID").toString();
+                                parkUID.add(UID);
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
@@ -97,6 +108,7 @@ public class ParkingMap extends FragmentActivity {
             displayMylocation();
         });
 
+
     }
 
     public void onShowPakingSpace( View view){
@@ -107,12 +119,18 @@ public class ParkingMap extends FragmentActivity {
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         mapFragment.getMapAsync(googleMap ->{
             mMap = googleMap;
+            int i=0;
             for(LatLng l: parkspace) {
-                googleMap.addMarker(new MarkerOptions().position(l).title("Destination").icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_local_parking_black_24dp)));
+                googleMap.addMarker(new MarkerOptions().position(l).title("$" +parkingprice.get(i)).snippet(parkaddresses.get(i)).icon(bitmapDescriptorFromVector(getApplicationContext(),R.drawable.ic_local_parking_black_24dp)));
+                i++;
             }
         });
+        mMap.setOnInfoWindowClickListener((GoogleMap.OnInfoWindowClickListener) this);
+
 
     }
+
+
 
 
     private void displayMylocation(){
@@ -130,7 +148,11 @@ public class ParkingMap extends FragmentActivity {
                 }
             });
         }
+
     }
+
+
+
     private List<LatLng> getListItems() {
         // transfer string address to longitude and latitude(if the address is valid)
         Log.d(TAG, "parkaddresses final: "+parkaddresses.size());
@@ -170,4 +192,40 @@ public class ParkingMap extends FragmentActivity {
             }
         }
     }
+
+
+    @Override
+    public void onInfoWindowClick(final Marker marker) {
+
+        // Retrieve the data from the marker.
+        marker.getTag();
+        String address = marker.getSnippet();
+        String price = marker.getTitle();
+        String ID = null;
+        String description = null;
+        String imagepath = null;
+        for(int i = 0; i<parkaddresses.size();i++){
+            if(address.equals(parkaddresses.get(i))){
+                ID = parkUID.get(i);
+                description = parkdescription.get(i);
+                imagepath = parkimagepath.get(i);
+            }
+        }
+        final Intent intent2 = new Intent(this, SpaceDetails.class);
+        intent2.putExtra("ID",ID);
+        intent2.putExtra("price",price);
+        intent2.putExtra("address",address);
+        intent2.putExtra("description",description);
+        intent2.putExtra("image",imagepath);
+        startActivity(intent2);
+
+
+
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+
+    }
+
+
 }

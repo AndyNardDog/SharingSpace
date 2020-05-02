@@ -33,7 +33,6 @@ public class SpaceDetails extends AppCompatActivity {
     FirebaseFirestore db;
     private static final String TAG = "spaceDetail";
     private List<String> UserInfo = new ArrayList<>();
-    private List<String> parkaddresses = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
