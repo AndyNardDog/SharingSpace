@@ -33,7 +33,7 @@ public class PaymentPage extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        name.setText("Owner: " + intent.getStringExtra("ID"));
+        name.setText("Owner: " + intent.getStringExtra("name"));
         price.setText("(Hourly) Rate: $" + intent.getStringExtra("price"));
         address.setText("Address: " + intent.getStringExtra("address"));
 
