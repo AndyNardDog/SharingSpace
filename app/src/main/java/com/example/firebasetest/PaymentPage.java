@@ -20,6 +20,7 @@ public class PaymentPage extends AppCompatActivity {
     private CalendarPopUp endCalendar;
     private LoadingPopUp loading;
 
+    EditText emailAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,8 @@ public class PaymentPage extends AppCompatActivity {
         TextView price = findViewById(R.id.costText);
         TextView address = findViewById(R.id.locationText);
         TextView phone = findViewById(R.id.phoneNoText);
-
+        emailAddress= (EditText) findViewById(R.id.emailAddress);
+        String email = emailAddress.getText().toString();
         Intent intent = getIntent();
 
         name.setText("Owner: " + intent.getStringExtra("name"));
@@ -60,6 +62,7 @@ public class PaymentPage extends AppCompatActivity {
 
         final Intent intent2 = new Intent(this, PaymentSucess.class);
 
+
 /////////////////////////////////////////////////////////////////
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +85,18 @@ public class PaymentPage extends AppCompatActivity {
 
                         @Override
                         public void onFinish() {
+                            // DOTO: send a confirmation email to user.
+                            Intent it = new Intent(Intent.ACTION_SEND);
+                            it.setType("text/plain");
+                            it.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                            it.putExtra(Intent.EXTRA_SUBJECT, "Payment Successful\n");
+                            it.putExtra(Intent.EXTRA_TEXT, "Hi Guest, Welcome to Space Sharing.\n " +
+                                    "Your parking lot is successfully reserved.\n" +
+                                    "Contact to Customer service if you have any trouble.\n" +
+                                    "Best Regard,\nSharing Space Admin");
+
+
+
                             startActivity(intent2);
                         }
                     };
