@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void gotoNext() {
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, MainMenu.class);
         startActivity(intent);
 
     }

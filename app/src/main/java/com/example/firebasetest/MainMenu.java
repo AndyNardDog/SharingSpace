@@ -33,10 +33,10 @@ public class MainMenu extends AppCompatActivity {
 
         FirebaseUser user = auth.getCurrentUser();
 
-//        if(user != null) {
-//            usernameText = (TextView) findViewById(R.id.);
-//            usernameText.setText("Hello " + user.getEmail());
-//        }
+        if(user != null) {
+            usernameText = (TextView) findViewById(R.id.welcomeText);
+            usernameText.setText("Hello " + user.getEmail());
+        }
     }
     public void onLogout(View view) {
         auth.signOut();
