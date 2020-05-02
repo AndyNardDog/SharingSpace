@@ -70,7 +70,7 @@
         android:id="@+id/costText"
         android:layout_width="349dp"
         android:layout_height="36dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="19dp"
         android:text="Cost:"
@@ -163,8 +163,8 @@
 
     <EditText
         android:id="@+id/cardText"
-        android:layout_width="270dp"
-        android:layout_height="36dp"
+        android:layout_width="271dp"
+        android:layout_height="47dp"
         android:text="Card:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +202,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/nameOnCardText"
         app:layout_constraintTop_toBottomOf="@+id/cardText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/cvvText"
@@ -226,7 +226,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/cardText"
         app:layout_constraintTop_toBottomOf="@+id/cardText"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.068" />
 
     <ImageButton
         android:id="@+id/confirmButton"
@@ -237,9 +237,9 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintVertical_bias="0.978" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
