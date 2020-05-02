@@ -184,10 +184,10 @@ public class Second_Main extends AppCompatActivity {
                     case 0:
                         break;
                     case 1:
-                        startActivity(mapTabIntent);
+//                        startActivity(mapTabIntent);
                         break;
                     case 2:
-                        startActivity(menuTabIntent);
+//                        startActivity(menuTabIntent);
                         break;
                 }
             }
@@ -247,7 +247,6 @@ public class Second_Main extends AppCompatActivity {
                 return new SpaceHolder(view);
             }
         };
-
         spacesRec.setAdapter(adapter);
     }
 //    @Override
