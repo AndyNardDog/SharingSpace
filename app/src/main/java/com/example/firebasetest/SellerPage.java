@@ -41,7 +41,6 @@ public class SellerPage extends AppCompatActivity {
     EditText description;
     Button register;
     Button chooseImage;
-    Boolean isRented = false;
     private FirebaseAuth auth;
     private FirebaseFirestore mFirestore;
     private StorageReference mStorageRef;
@@ -50,6 +49,7 @@ public class SellerPage extends AppCompatActivity {
     private static final int PERMISSION_CODE = 1001;
     ImageView View;
     public Uri imgUir;
+    public String imageStore;
 //    private StorageTask uploadTask;
 
     @Override
@@ -97,8 +97,10 @@ public class SellerPage extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 FileUploader();
                 addSellerInfo();
+
             }
         });
 
@@ -148,6 +150,7 @@ public class SellerPage extends AppCompatActivity {
 
     private void FileUploader(){
         final StorageReference Ref = mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(imgUir));
+        imageStore = String.valueOf(Ref);
 
         Ref.putFile(imgUir)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -174,10 +177,10 @@ public class SellerPage extends AppCompatActivity {
         String addressStr = Address.getText().toString().trim();
         String priceStr = price.getText().toString().trim();
         String descriptionStr = description.getText().toString().trim();
-        isRented =true;
+        int isRented =0;
 
-        CollectionReference parkspaces = mFirestore.collection("parkspaces");
-        sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr, isRented);
+        CollectionReference parkspaces = mFirestore.collection("parkingspace");
+        sellerData parkspace = new sellerData(ID, addressStr, priceStr, descriptionStr, imageStore, isRented);
         parkspaces.add(parkspace);
     }
 

@@ -208,7 +208,7 @@ public class Second_Main extends AppCompatActivity {
         spacesRec = (RecyclerView) findViewById(R.id.spacesRecycler);
         spacesRec.setLayoutManager(new LinearLayoutManager(this));
 
-        final Query spaces = fb.collection("parkspaces");
+        final Query spaces = fb.collection("parkingspace");
 
         recyclerOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
                 .setQuery(spaces, SpaceModel.class)
@@ -234,6 +234,7 @@ public class Second_Main extends AppCompatActivity {
                         intent2.putExtra("price",spaceModel1.getPrice());
                         intent2.putExtra("address",spaceModel1.getAddress());
                         intent2.putExtra("description",spaceModel1.getDescription());
+                        intent2.putExtra("image",spaceModel1.getImagepath());
                         startActivity(intent2);
                     }
                 });

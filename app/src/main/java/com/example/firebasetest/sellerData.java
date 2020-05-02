@@ -8,17 +8,19 @@ public class sellerData {
 String address;
 String price;
 String description;
-Boolean isRented = false;
+int isRented ;
+String imagepath;
 
     public sellerData(){}
 
 
-public sellerData( String sellerID, String address , String price , String description, Boolean isRented){
+public sellerData( String sellerID, String address , String price , String description, String imagepath, int isRented){
         this.sellerID = sellerID;
     this.address = address;
     this.price = price;
     this.description = description;
     this.isRented = isRented;
+    this.imagepath = imagepath;
 
 }
 
@@ -38,6 +40,13 @@ public sellerData( String sellerID, String address , String price , String descr
         this.description = description;
     }
 
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
+    }
+
+    public void setIsRented(int imagepath) {
+        this.isRented = isRented;
+    }
 
     public String getSellerID() {
         return sellerID;
@@ -54,6 +63,14 @@ public sellerData( String sellerID, String address , String price , String descr
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public int getIsRented() {
+        return isRented;
     }
 
 

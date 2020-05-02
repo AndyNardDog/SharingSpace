@@ -68,7 +68,7 @@ public class ParkingMap extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         //get address from firestore tostring
         db = FirebaseFirestore.getInstance();
-        db.collection("parkspaces")
+        db.collection("parkingspace")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
