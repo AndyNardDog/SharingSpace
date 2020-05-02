@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SpaceDetails">
 
-
     <TextView
         android:id="@+id/priceTextView"
         android:layout_width="wrap_content"

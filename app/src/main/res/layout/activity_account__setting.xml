@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Account_Setting">
 
-   <TextView
+    <TextView
         android:id="@+id/accSetting"
         android:layout_width="379dp"
         android:layout_height="51dp"
         android:layout_marginStart="13dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Account Setting"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textSize="40dp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,66 +26,50 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="212dp"
-        android:layout_height="198dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/accSetting"
         app:srcCompat="@drawable/common_google_signin_btn_icon_light_normal_background" />
 
     <Button
         android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="243dp"
-        android:layout_marginBottom="416dp"
+        android:layout_marginBottom="400dp"
         android:text="Update Image"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/userName"
-        android:layout_width="74dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="124dp"
-        android:text="User Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/accSetting" />
-
-    <TextView
         android:id="@+id/email"
         android:layout_width="199dp"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="159dp"
         android:text="EMAIL ADDRESS"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
- <TextView
+    <TextView
      android:id="@+id/phone"
      android:layout_width="206dp"
-     android:layout_height="34dp"
-     android:layout_marginStart="53dp"
+     android:layout_height="20dp"
+     android:layout_marginStart="55dp"
      android:layout_marginTop="5dp"
      android:layout_marginEnd="154dp"
      android:text="PHONE NUMBER"
-     android:textSize="20dp"
+     android:textSize="15dp"
      app:layout_constraintBottom_toTopOf="@+id/editText2"
      app:layout_constraintEnd_toEndOf="parent"
      app:layout_constraintStart_toStartOf="parent"
@@ -91,11 +78,12 @@
     <TextView
         android:id="@+id/address"
         android:layout_width="111dp"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="247dp"
         android:text="ADDRESS"
-        android:textSize="20dp"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
@@ -103,11 +91,10 @@
     <EditText
         android:id="@+id/editText2"
         android:layout_width="297dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="53dp"
         android:layout_marginEnd="63dp"
-
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@+id/address"
@@ -118,30 +105,29 @@
     <EditText
         android:id="@+id/editText3"
         android:layout_width="297dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="61dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/name"
         android:layout_width="297dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="53dp"
         android:layout_marginEnd="63dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -151,8 +137,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
         android:layout_marginEnd="173dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="50dp"
         android:text="Updata Account"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -161,14 +148,13 @@
         android:id="@+id/editText"
         android:layout_width="137dp"
         android:layout_height="43dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="149dp"
+        android:layout_marginBottom="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toEndOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
