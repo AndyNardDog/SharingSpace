@@ -17,6 +17,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -47,7 +48,7 @@ import java.util.List;
 public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWindowClickListener {
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 12;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-    private final LatLng mDestinationLatLng = new LatLng(43.0714994, -89.4083679);
+    private final LatLng mCurrentLatLng = new LatLng(43.0714994, -89.4083679);
     private GoogleMap mMap;
     private static final String TAG = "Map";
     private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vextorResId){
@@ -70,6 +71,20 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
     FirebaseFirestore db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //initiate mapfragment, display current location
+        setContentView(R.layout.activity_parking_map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_map);
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        mapFragment.getMapAsync(googleMap ->{
+            mMap = googleMap;
+            displayMylocation();
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mCurrentLatLng, 11));
+
+            // Zoom in, animating the camera.
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(11), 20, null);
+
+        });
         //get address from firestore tostring
         db = FirebaseFirestore.getInstance();
         db.collection("parkingspace")
@@ -99,15 +114,7 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
                     }
                 });
 
-        super.onCreate(savedInstanceState);
-        //initiate mapfragment, display current location
-        setContentView(R.layout.activity_parking_map);
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_map);
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        mapFragment.getMapAsync(googleMap ->{
-            mMap = googleMap;
-            displayMylocation();
-        });
+
 
 
     }
@@ -142,9 +149,11 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
         else {
             mFusedLocationProviderClient.getLastLocation().addOnCompleteListener(this, task -> {
                 Location mLastKnownLocation = task.getResult();
+                Log.d(TAG, "mLastKnownLocation "+mLastKnownLocation);
                 if (task.isSuccessful() && mLastKnownLocation != null){
                     LatLng mCurrentLatLng = new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude());
                     mMap.addMarker(new MarkerOptions().position(mCurrentLatLng).title("Current"));
+
 
                 }
             });
@@ -201,7 +210,8 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
         // Retrieve the data from the marker.
         marker.getTag();
         String address = marker.getSnippet();
-        String price = marker.getTitle();
+        String sprice = marker.getTitle();
+        String price = sprice.substring(1,sprice.length());
         String ID = null;
         String description = null;
         String imagepath = null;
