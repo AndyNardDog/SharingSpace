@@ -53,9 +53,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation files('libs/activation.jar')
-    implementation files('libs/additionnal.jar')
-    implementation files('libs/mail.jar')
+//    implementation files('libs/activation.jar')
+//    implementation files('libs/additionnal.jar')
+//    implementation files('libs/mail.jar')
 
 
 }
