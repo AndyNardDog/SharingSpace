@@ -211,7 +211,7 @@ public class Second_Main extends AppCompatActivity {
         final Query spaces = fb.collection("parkingspace");
 
         recyclerOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
-                .setQuery(spaces, SpaceModel.class)
+                .setQuery(spaces.whereEqualTo("isRented",0), SpaceModel.class)
                 .build();
 
         final Intent intent2 = new Intent(this, SpaceDetails.class);
@@ -220,29 +220,32 @@ public class Second_Main extends AppCompatActivity {
 
             @Override
             protected void onBindViewHolder(final SpaceHolder spaceHolder, int i, final SpaceModel spaceModel) {
-                spaceHolder.setAddress(spaceModel.getAddress());
-                spaceHolder.setDescription(spaceModel.getDescription());
-                spaceHolder.setPrice(spaceModel.getPrice());
-                spaceHolder.setSellerId(spaceModel.getSellerID());
 
-                spaceHolder.view.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        position = spaceHolder.getAdapterPosition();
-                        SpaceModel spaceModel1  = getItem(position);
-                        intent2.putExtra("ID",spaceModel1.getSellerID());
-                        intent2.putExtra("price",spaceModel1.getPrice());
-                        intent2.putExtra("address",spaceModel1.getAddress());
-                        intent2.putExtra("description",spaceModel1.getDescription());
-                        intent2.putExtra("image",spaceModel1.getImagepath());
-                        startActivity(intent2);
-                    }
-                });
+                    spaceHolder.setAddress(spaceModel.getAddress());
+                    spaceHolder.setDescription(spaceModel.getDescription());
+                    spaceHolder.setPrice(spaceModel.getPrice());
+                    spaceHolder.setSellerId(spaceModel.getSellerID());
+
+                    spaceHolder.view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            position = spaceHolder.getAdapterPosition();
+                            SpaceModel spaceModel1 = getItem(position);
+                            intent2.putExtra("ID", spaceModel1.getSellerID());
+                            intent2.putExtra("price", spaceModel1.getPrice());
+                            intent2.putExtra("address", spaceModel1.getAddress());
+                            intent2.putExtra("description", spaceModel1.getDescription());
+                            intent2.putExtra("image", spaceModel1.getImagepath());
+                            startActivity(intent2);
+                        }
+                    });
+
             }
 
             @NonNull
             @Override
             public SpaceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
                 View view  = LayoutInflater.from(parent.getContext()).inflate(R.layout.space, parent, false);
                 return new SpaceHolder(view);
             }

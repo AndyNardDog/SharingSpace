@@ -73,6 +73,7 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
         //get address from firestore tostring
         db = FirebaseFirestore.getInstance();
         db.collection("parkingspace")
+                .whereEqualTo("isRented",0)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
