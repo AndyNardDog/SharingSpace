@@ -208,10 +208,10 @@ public class Second_Main extends AppCompatActivity {
         spacesRec = (RecyclerView) findViewById(R.id.spacesRecycler);
         spacesRec.setLayoutManager(new LinearLayoutManager(this));
 
-        final Query spaces = fb.collection("parkingspace");
+        final Query spaces = fb.collection("parkingspace").whereEqualTo("isRented",0);
 
         recyclerOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
-                .setQuery(spaces.whereEqualTo("isRented",0), SpaceModel.class)
+                .setQuery(spaces, SpaceModel.class)
                 .build();
 
         final Intent intent2 = new Intent(this, SpaceDetails.class);
