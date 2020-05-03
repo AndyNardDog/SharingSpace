@@ -20,7 +20,6 @@ public class SpaceHolder extends RecyclerView.ViewHolder {
         addressText = view.findViewById(R.id.Address);
         descriptionText = view.findViewById(R.id.Description);
         priceText = view.findViewById(R.id.Price);
-        sellerIdText = view.findViewById(R.id.SellerID);
     }
 
     public void setAddress(String address) {
@@ -33,6 +32,5 @@ public class SpaceHolder extends RecyclerView.ViewHolder {
 
     public void setPrice(String price) { priceText.setText("Hourly Rate: $" + price); }
 
-    public void setSellerId(String sellerId) { sellerIdText.setText(sellerId); }
 
 }
