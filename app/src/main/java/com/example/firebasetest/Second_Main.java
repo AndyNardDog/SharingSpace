@@ -285,7 +285,7 @@ public class Second_Main extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.priceSort:
 
-                CollectionReference ref = fb.collection("parkspaces");
+                CollectionReference ref = fb.collection("parkingspace");
                 Query sortedSpaces = ref.orderBy("price", Query.Direction.ASCENDING);
 
                 FirestoreRecyclerOptions<SpaceModel> newOptions = new FirestoreRecyclerOptions.Builder<SpaceModel>()
