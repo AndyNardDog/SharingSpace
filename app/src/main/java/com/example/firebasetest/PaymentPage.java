@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -95,7 +96,17 @@ public class PaymentPage extends AppCompatActivity {
                                     "Contact to Customer service if you have any trouble.\n" +
                                     "Best Regard,\nSharing Space Admin");
 
+                            try {
+                                if (it.resolveActivity(getPackageManager()) != null) {
 
+                                    startActivity(it.createChooser(it, "Send mail..."));
+                                }
+                                finish();
+                                Log.i("Finished sending email...", "");
+                            } catch (android.content.ActivityNotFoundException ex) {
+                                Toast.makeText(PaymentPage.this,
+                                        "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                            }
 
                             startActivity(intent2);
                         }

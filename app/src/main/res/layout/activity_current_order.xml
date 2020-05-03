@@ -7,27 +7,4 @@
     tools:context=".CurrentOrder">
 
 
-    <EditText
-        android:id="@+id/txtTo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="To"/>
-    <EditText
-        android:id="@+id/txtSub"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Subject"/>
-    <EditText
-        android:id="@+id/txtMsg"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"
-        android:hint="Message"/>
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Send"
-        android:id="@+id/btnSend"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

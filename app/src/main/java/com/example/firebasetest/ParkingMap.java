@@ -51,6 +51,7 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
     private final LatLng mCurrentLatLng = new LatLng(43.0714994, -89.4083679);
     private GoogleMap mMap;
     private static final String TAG = "Map";
+
     private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vextorResId){
         Drawable vectorDrable = ContextCompat.getDrawable(context,vextorResId);
         vectorDrable.setBounds(0,0,vectorDrable.getIntrinsicWidth(),vectorDrable.getIntrinsicHeight());
