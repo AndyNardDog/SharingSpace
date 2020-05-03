@@ -63,10 +63,10 @@ public class Account_Setting extends AppCompatActivity {
 
 
         Profileimage = (ImageView)findViewById(R.id.imageView);
-        name = (EditText)findViewById(R.id.name);
+        name = (EditText)findViewById(R.id.editText);
         Address = (EditText)findViewById(R.id.editText3);
         PhoneNumber = (EditText)findViewById(R.id.editText2);
-        Email = (EditText)findViewById(R.id.editText3);
+        Email = (EditText)findViewById(R.id.emailaddress);
         updateimage = (Button)findViewById(R.id.imageButton);
         updateButton = (Button)findViewById(R.id.button3);
 
