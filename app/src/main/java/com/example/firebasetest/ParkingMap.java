@@ -108,6 +108,7 @@ public class ParkingMap extends FragmentActivity implements GoogleMap.OnInfoWind
                                 parkimagepath.add(imagepath);
                                 String   UID =  document.getData().get("sellerID").toString();
                                 parkUID.add(UID);
+
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
