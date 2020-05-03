@@ -224,7 +224,7 @@ public class Second_Main extends AppCompatActivity {
                     spaceHolder.setAddress(spaceModel.getAddress());
                     spaceHolder.setDescription(spaceModel.getDescription());
                     spaceHolder.setPrice(spaceModel.getPrice());
-                    spaceHolder.setSellerId(spaceModel.getSellerID());
+                    //spaceHolder.setSellerId(spaceModel.getSellerID());
 
                     spaceHolder.view.setOnClickListener(new View.OnClickListener() {
                         @Override
